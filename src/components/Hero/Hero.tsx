@@ -12,7 +12,7 @@ export default function Hero(): JSX.Element {
           <p className={styles.subtitle}>
             A startup maranhense que transforma emoções em escolhas alimentares
             saudáveis — gamificação e inteligência emocional a serviço de uma
-            geração mais saudável. {":contentReference[oaicite:2]{index=2}"}
+            geração mais saudável.
           </p>
           <div className={styles.actions}>
             <Button href="#cta">Receber apresentação</Button>

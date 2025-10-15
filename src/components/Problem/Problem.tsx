@@ -25,7 +25,6 @@ export default function Problem(): JSX.Element {
           adolescentes não apresentam fatores de risco comportamentais —
           enquanto 81 em cada 100 já têm dois ou mais fatores (sedentarismo,
           baixo consumo de frutas e alto consumo de ultraprocessados).
-          :contentReference[oaicite:3]{"{index=3}"}
         </p>
 
         <div className={styles.stats}>

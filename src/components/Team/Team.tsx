@@ -39,7 +39,7 @@ export default function Team(): JSX.Element {
         <h3>Equipe</h3>
         <p className={styles.lead}>
           {
-            "Equipe multidisciplinar com experiência técnica, científica e de mercado. :contentReference[oaicite:6]{index=6}"
+            "Equipe multidisciplinar com experiência técnica, científica e de mercado."
           }
         </p>
         <div className={styles.grid}>
