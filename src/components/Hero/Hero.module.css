@@ -1,0 +1,121 @@
+.hero {
+  padding: 48px var(--container-padding);
+  background: linear-gradient(180deg, var(--hero-start), var(--hero-end));
+}
+.inner {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+/* copy and visual */
+.copy {
+  order: 1;
+}
+.title {
+  font-size: 1.25rem; /* mobile-first */
+  margin: 0 0 8px;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+.subtitle {
+  color: var(--color-text);
+  margin: 0 0 12px;
+  line-height: var(--lead-line-height);
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.visual {
+  order: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.mockCard {
+  /* o container */
+  width: 100%;
+  max-width: 420px; /* limite visual opcional */
+  border-radius: 120% 12% 80%;
+  /* border: 1px dashed var(--color-border); */
+  /* overflow: hidden; protege bordas arredondadas */
+  background: linear-gradient(
+    180deg,
+    rgba(11, 107, 99, 0.02),
+    rgba(53, 67, 255, 0.144)
+  );
+  display: none;
+}
+
+.mockImage {
+  /* display: block; */
+  width: 100%;
+  position: relative;
+  top: -50%;
+  height: auto; /*' mantém proporção natural */
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 575.98px) {
+  .mockCard {
+    max-width: 320px;
+    /* display: none; */
+  }
+}
+
+/* >= 576px: two-column-ish (if space) */
+@media (min-width: 576px) {
+  .inner {
+    grid-template-columns: 1fr 360px;
+    align-items: center;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .mockCard {
+    height: 200px;
+    display: block;
+  }
+}
+
+/* >= 768px: more spacing */
+@media (min-width: 768px) {
+  .hero {
+    padding: 56px var(--container-padding);
+  }
+  .title {
+    font-size: 1.75rem;
+  }
+  .mockCard {
+    height: 220px;
+  }
+}
+
+/* >= 992px */
+@media (min-width: 992px) {
+  .inner {
+    grid-template-columns: 1fr 420px;
+    gap: 28px;
+  }
+  .title {
+    font-size: 2rem;
+  }
+}
+
+/* >= 1200px */
+@media (min-width: 1200px) {
+  .hero {
+    padding: 64px var(--container-padding);
+  }
+  .title {
+    font-size: 2.25rem;
+  }
+}

@@ -1,0 +1,90 @@
+.section {
+  padding: 28px var(--container-padding);
+  background: linear-gradient(180deg, rgba(11, 107, 99, 0.02), #fff);
+}
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.stats {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* stat card */
+.stat {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    180deg,
+    var(--color-surface),
+    rgba(11, 107, 99, 0.01)
+  );
+  border: 1px solid var(--color-border);
+  min-width: 160px;
+  flex: 1 1 160px;
+  transition: transform 180ms ease, box-shadow 220ms ease, background 260ms ease;
+  will-change: transform, box-shadow, background;
+  outline: none; /* visualização de foco será tratada por :focus-visible */
+}
+.stat strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+.stat span {
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+/* Hover/focus only on devices that support hover (prevenção em touch) */
+@media (hover: hover) {
+  .stat:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(11, 107, 99, 0.08);
+    background: linear-gradient(
+      180deg,
+      rgba(14, 133, 122, 0.1),
+      rgba(244, 192, 74, 0.04)
+    );
+    border-color: rgba(11, 107, 99, 0.12);
+  }
+
+  .stat:active {
+    transform: translateY(-2px);
+  }
+}
+
+/* Support keyboard focus (accessibility) */
+.stat:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(11, 107, 99, 0.08);
+  background: linear-gradient(
+    180deg,
+    rgba(14, 133, 122, 0.1),
+    rgba(244, 192, 74, 0.04)
+  );
+  border-color: rgba(11, 107, 99, 0.12);
+  outline: 3px solid rgba(11, 107, 99, 0.12);
+  outline-offset: 3px;
+}
+
+/* reduz movimento se preferido pelo usuário */
+@media (prefers-reduced-motion: reduce) {
+  .stat,
+  .stat:focus-visible,
+  .stat:hover {
+    transition: none;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* typography scaling */
+@media (min-width: 768px) {
+  .stat strong {
+    font-size: 1.25rem;
+  }
+}

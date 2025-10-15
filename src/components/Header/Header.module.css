@@ -1,0 +1,187 @@
+/* Base / header container (mantive variáveis globais já definidas) */
+.header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  backdrop-filter: blur(4px);
+}
+
+/* Header inner (relativo para posicionamento do dropdown) */
+.headerInner {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 10px var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative; /* para dropdown absoluto */
+}
+
+/* Logo */
+.logo {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+/* ----- Desktop nav: visível para >= 768px ----- */
+.navDesktop {
+  display: none; /* mobile-first: escondemos */
+  align-items: center;
+  gap: 12px;
+}
+.link {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: var(--fs-sm);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.link:focus,
+.link:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(11, 107, 99, 0.06),
+    rgba(255, 107, 53, 0.03)
+  );
+  outline: none;
+}
+.cta {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(11, 107, 99, 0.08);
+}
+
+/* ----- Mobile area: hamburger + dropdown (visível < 768px) ----- */
+.mobileArea {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--color-primary);
+  transition: background 120ms ease, transform 120ms ease;
+}
+.hamburger:hover,
+.hamburger:focus {
+  background: linear-gradient(
+    90deg,
+    rgba(11, 107, 99, 0.03),
+    rgba(255, 107, 53, 0.02)
+  );
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Mobile menu dropdown (absoluto) */
+.mobileMenu {
+  display: block;
+  position: absolute;
+  right: var(--container-padding);
+  top: calc(100% + 8px);
+  width: min(92vw, 320px);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  border-radius: 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 12px 30px rgba(11, 107, 99, 0.08);
+  transition: max-height 260ms ease, opacity 180ms ease, transform 200ms ease;
+  transform-origin: top right;
+  z-index: 95;
+}
+
+/* quando aberto */
+.mobileMenu.open {
+  max-height: 560px; /* suficiente para os itens */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* conteúdo interno */
+.mobileMenuContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+}
+
+/* cada item do menu */
+.mobileMenuItem {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+.mobileMenuItem:hover,
+.mobileMenuItem:focus {
+  background: linear-gradient(
+    90deg,
+    rgba(11, 107, 99, 0.04),
+    rgba(255, 107, 53, 0.02)
+  );
+  outline: none;
+}
+
+/* CTA especial no menu (se quiser destaque) */
+.mobileCTA {
+  margin-top: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  color: var(--color-surface);
+  text-align: center;
+}
+
+/* ----- Responsividade: desktop >=768px ----- */
+@media (min-width: 768px) {
+  .mobileArea {
+    display: none;
+  } /* escondemos hamburger */
+  .navDesktop {
+    display: flex;
+  } /* mostramos nav desktop */
+  .headerInner {
+    padding: 12px var(--container-padding);
+  }
+  .mobileMenu {
+    display: none;
+  }
+}
+
+/* ajuste para muito pequeno (<576px) - posicionamento do menu */
+@media (max-width: 575.98px) {
+  .mobileMenu {
+    right: 6px;
+    width: min(96vw, 320px);
+  }
+}
+
+/* ajuste para 576-767.98 - centraliza um pouco */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .mobileMenu {
+    right: calc(var(--container-padding) + 2px);
+    width: 320px;
+  }
+}
