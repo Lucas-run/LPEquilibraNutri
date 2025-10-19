@@ -16,11 +16,6 @@ const team: Member[] = [
     bio: "Atua na dimensão emocional do consumo alimentar.",
   },
   {
-    name: "Kelvin Felipe",
-    role: "Administração",
-    bio: "Planejamento financeiro e modelagem de negócio.",
-  },
-  {
     name: "Lucas",
     role: "Dev (infra e produto)",
     bio: "Desenvolve infraestrutura digital e automações.",

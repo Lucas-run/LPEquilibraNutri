@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Lucas-run.github.io/LPEquilibraNutri/",
+  "homepage": "https://www.equilibranutri.site",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
