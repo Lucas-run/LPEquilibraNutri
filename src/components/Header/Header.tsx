@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type JSX } from "react";
 import styles from "./Header.module.css";
+import Logo from "../../assets/logo-menor.png";
 
 /**
  * Header com menu dropdown/hamburger para telas < 768px.
@@ -83,7 +84,15 @@ export default function Header(): JSX.Element {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        <h1 className={styles.logo}>EquilibraNutri+</h1>
+        <div className={styles.logoContainer}>
+          {/* ícone / logo */}
+          <img
+            src={Logo}
+            alt="Logotipo do EquilibraNutri+"
+            className={styles.logoIcon}
+          />
+          <h1 className={styles.logoText}>EquilibraNutri+</h1>
+        </div>
 
         {/* Desktop nav (visível >= 768px) */}
         <nav className={styles.navDesktop} aria-label="Navegação principal">

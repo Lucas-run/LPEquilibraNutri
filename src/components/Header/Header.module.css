@@ -22,10 +22,22 @@
 }
 
 /* Logo */
-.logo {
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoText {
   font-size: 1.125rem;
   font-weight: 800;
   color: var(--color-primary);
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 /* ----- Desktop nav: visível para >= 768px ----- */
@@ -92,33 +104,34 @@
 /* Mobile menu dropdown (absoluto) */
 .mobileMenu {
   display: block;
-  position: absolute;
-  right: var(--container-padding);
-  top: calc(100% + 8px);
-  width: min(92vw, 320px);
-  max-height: 0;
+  position: fixed;
+  top: 63px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 63px);
   overflow: hidden;
   opacity: 0;
-  border-radius: 10px;
+  pointer-events: none; /* desabilita interações quando fechado */
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 12px 30px rgba(11, 107, 99, 0.08);
   transition: max-height 260ms ease, opacity 180ms ease, transform 200ms ease;
-  transform-origin: top right;
+  transform-origin: top;
   z-index: 95;
 }
 
 /* quando aberto */
 .mobileMenu.open {
-  max-height: 560px; /* suficiente para os itens */
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto; /* habilita interações */
 }
 
 /* conteúdo interno */
 .mobileMenuContent {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 75%;
   gap: 6px;
   padding: 10px;
 }
@@ -126,6 +139,8 @@
 /* cada item do menu */
 .mobileMenuItem {
   display: block;
+  width: 100%;
+  text-align: center;
   padding: 10px 12px;
   border-radius: 8px;
   color: var(--color-text);
@@ -174,7 +189,6 @@
 @media (max-width: 575.98px) {
   .mobileMenu {
     right: 6px;
-    width: min(96vw, 320px);
   }
 }
 
